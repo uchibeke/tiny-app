@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> Initial commit
 # Created by https://www.gitignore.io/api/node,osx
 
 ### Node ###
@@ -37,7 +40,10 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> Initial commit
 ### OSX ###
 .DS_Store
 .AppleDouble
@@ -46,7 +52,10 @@ jspm_packages
 # Icon must end with two \r
 Icon
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> Initial commit
 # Thumbnails
 ._*
 
@@ -68,3 +77,4 @@ Temporary Items
 .vscode
 .next
 .env
+.env.local

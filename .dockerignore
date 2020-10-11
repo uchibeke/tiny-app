@@ -6,3 +6,4 @@ scripts
 *Dockerfile*
 node_modules
 .env
+.env.local
