@@ -8,6 +8,8 @@ build:
 	@docker tag ${IMG} ${LATEST}
 
 push:
+	@docker build -t ${IMG} .
+	@docker tag ${IMG} ${LATEST}
 	@docker push ${NAME}
 
 login:
