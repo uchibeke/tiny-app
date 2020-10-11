@@ -1,0 +1,43 @@
+# NextJS and Docker
+
+- Node stable: v14.13.1
+- npm version: 6.14.8
+- Docker version: 19.03.13, build 4484c46d9d
+
+A note about [alpine and node](https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine) which explains:
+
+```Dockerfile
+RUN apk add --no-cache libc6-compat
+```
+
+Enjoy!
+
+### Local
+
+#### Dev
+
+`npm i && npm run dev`
+
+### Docker Compose
+
+`docker-compose up --build`
+
+This will build and run your container locally :rocket:
+
+### Traditional Docker Route
+
+Build your containers for deploys:
+
+MacOS/Linux
+
+`./scripts/prod.sh`
+
+Windows
+
+`./scripts/prod.bat`
+
+Now that your container is built, you can test it locally:
+
+`docker run -p 5000:5000 nextjs-docker`
+
+Now deploy :rocket:
