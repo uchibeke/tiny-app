@@ -46,3 +46,4 @@ This will build and run your container locally :rocket:
 - Look into using (watchtower)[https://github.com/containrrr/watchtower]
 - Add a deployment and release doc
 - Improve user account management: private registry vs hub
+- CI to trigger tests after PR
