@@ -1,43 +1,48 @@
-# NextJS and Docker
+# Tiny app
 
-- Node stable: v14.13.1
-- npm version: 6.14.8
-- Docker version: 19.03.13, build 4484c46d9d
+A simple web app that uses Docker to deploy new production builds.
 
-A note about [alpine and node](https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine) which explains:
+## Assumptions
 
-```Dockerfile
-RUN apk add --no-cache libc6-compat
-```
+- The program is a web app that runs internally in a client's network
+- The program will be shipped as docker images
+  - Each release will include a commit hash which the client, internal developers and other stakeholder can use to track and trace issues
+  - The program will have some form of CI/CD setup
+- The release will happen as follows:
+  - Release
+    - Push to Docker Hub or private image registry with a tag via `make push`
+  - Pre-production
+    - Start new container with new application code
+    - Tests by client
+  - Launch
+    - After tests is satisfied, stop old container and delete
 
-Enjoy!
+## Development Process
 
-### Local
+### Run locally in Dev
 
-#### Dev
+`make run-local` or `npm i && npm run dev`
 
-`npm i && npm run dev`
+### Run production version
 
-### Docker Compose
-
-`docker-compose up --build`
+`make run-production`
 
 This will build and run your container locally :rocket:
 
-### Traditional Docker Route
+## Release process
 
-Build your containers for deploys:
+### Build the app
 
-MacOS/Linux
+`make build`
 
-`./scripts/prod.sh`
+### Push to client
 
-Windows
+`make push`
 
-`./scripts/prod.bat`
+## Limitations and improvements
 
-Now that your container is built, you can test it locally:
-
-`docker run -p 5000:5000 nextjs-docker`
-
-Now deploy :rocket:
+- Needs more testing
+- Change from JS to potentially Go
+- Look into using (watchtower)[https://github.com/containrrr/watchtower]
+- Add a deployment and release doc
+- Improve user account management: private registry vs hub

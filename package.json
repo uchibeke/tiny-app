@@ -1,17 +1,36 @@
 {
-  "name": "nextjs-docker",
+  "name": "tiny-app",
   "version": "1.0.0",
-  "description": "Node - Next.js - Next - React - SSR - Docker",
-  "author": "Regis Boudinot (selfup)",
+  "description": "A tiny app to illustrate production docker",
+  "author": "Uchi Uchibeke (uchibeke)",
   "scripts": {
     "postinstall": "npx next telemetry disable",
-    "dev": "next",
-    "start": "next start",
-    "build": "next build"
+    "dev": "next -p 5000",
+    "start": "next start -p 5000",
+    "build": "next build",
+    "test": "jest --watch"
   },
   "dependencies": {
+    "@babel/runtime": "^7.11.2",
+    "@material-ui/core": "^4.11.0",
+    "@zeit/next-css": "^1.0.1",
+    "airtable": "^0.10.0",
+    "isomorphic-unfetch": "^3.1.0",
     "next": "^9.5.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.0.4",
+    "babel-jest": "^26.5.2",
+    "jest": "^26.5.3",
+    "react-test-renderer": "^16.13.1"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./tests.setup.js"
+    ],
+    "verbose": true
   }
 }

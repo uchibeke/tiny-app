@@ -1,0 +1,19 @@
+.home-table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+.home-cell {
+  text-align: left;
+  padding: 8px;
+}
+
+.home-cell:first-child {
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
